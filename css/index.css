@@ -1,0 +1,37 @@
+body {
+  background-color: #2b0138;
+}
+
+.reveal .horizontal-flex-container {
+  display: flex;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.reveal .horizontal-flex-item {
+  flex: 1;
+  margin: 1em;
+}
+
+.reveal .horizontal-flex-item.left {
+  max-width: 25%;
+}
+
+.reveal h1 {
+  color: #ffdf9b;
+  background-color: rgba(1, 1, 1, 0.7);
+}
+
+.reveal h2 {
+  color: #a571b6;
+  background-color: rgba(1, 1, 1, 0.7);
+}
+
+.reveal h3,
+.reveal h4 {
+  color: #7888b9;
+  background-color: rgba(1, 1, 1, 0.7);
+}
