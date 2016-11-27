@@ -33,3 +33,11 @@ class CacheEngine {
       .then(connection => connection.del(key));
   }
 }
+
+function cache(CacheEngine, params) {
+  return
+}
+
+module.exports = {
+  CacheEngine,
+}
