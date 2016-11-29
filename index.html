@@ -13,442 +13,340 @@
 
   <link rel="stylesheet" href="reveal/css/reveal.css">
   <link rel="stylesheet" href="reveal/css/theme/black.css" id="theme">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/gruvbox-dark.min.css">
+  <link rel="stylesheet" href="css/code.css">
   <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
+  <footer class="mono-footer">
+    <div style="background-image: url(images/monolith.jpg)" class="footer-item"></div>
+    <div style="background-image: url(images/monopurpose.jpg)" class="footer-item"></div>
+    <div style="background-image: url(images/monorepo.jpg)" class="footer-item"></div>
+  </footer>
+
   <div class="reveal">
     <div class="slides">
       <section>
         <h1>Modularity and Monorepositories</h1>
         <br/>
         <br/>
-        <div>
-          <h4>Architects hate this.
-            <br />
-            <small>Learn how to build lasting software with this one weird trick.</small>
-          </h4>
-        </div>
-      </section>
-
-      <section data-background="http://www.asergeev.com/pictures/archives/2006/494/jpeg/10.jpg">
-      </section>
-
-      <section>
-        <video preload="auto" autoPlay muted loop>
-          <source src="http://i.imgur.com/c2d5ttY.mp4" type="video/mp4">
-          </source>
-        </video>
-      </section>
-
-      <section>
-        <h1>how do we communicate to each other with code?</h1>
-
-        <pre>
-          <code class="hljs javascript" data-trim data-noescape>
-/* absolutely does not return 0 */
-
-function doesNotReturnZero () {
-  // FIXME: hardcoding to zero due to client reqs
-  return 0;
-}
-          </code>
-        </pre>
-      </section>
-
-      <section data-background="http://www.incimages.com/uploaded_files/image/1940x900/communication-group-1940x900_35361.jpg">
-        <h1>Laws of Communication</h1>
-      </section>
-
-      <section data-background="http://deborahsdescendants.com/wp-content/uploads/2016/08/quid-pro-quo.jpg">
-        <h1>Quid Pro Quo</h1>
-      </section>
-
-      <section data-background="http://www.bioethics.com/wp-content/uploads/2014/03/genetic-ethics1.jpg">
-        <h1>The Genetic Method</h1>
-      </section>
-
-      <section>
-        <div class="horizontal-flex-container">
-          <img class="horizontal-flex-item left" src="https://meekrosoft.files.wordpress.com/2013/06/conway.png"></img>
-          <div class="horizontal-flex-item">
-            <h2>organisation are contrained to produce designs which are copies of their communication structures</h2>
-            <h3>melvin conway</h3>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <img src="http://assets.sbnation.com/assets/2907963/microsoftguns.jpg"></img>
-      </section>
-
-      <section>
-        <h1>Who is responsible for enforcing code quality?</h1>
-      </section>
-
-      <section>
-        <img src="http://i.imgur.com/fTTBLia.gif" width="1200px"></img>
-      </section>
-
-      <section>
-        <div class="horizontal-flex-container">
-          <img class="horizontal-flex-item left" src="https://pbs.twimg.com/profile_images/451185078073171968/T4QKBj-E.jpeg"></img>
-          <div class="horizontal-flex-item">
-            <h2>it's harder to read code than to write it</h2>
-            <h3>joel (on software) spolsky</h3>
-          </div>
-        </div>
-      </section>
-
-      <section data-background="http://chrisoatley.com/wp-content/uploads/2012/10/kronk-shoulder-devil.jpg">
-        <h1>save me from myself</h1>
+        <h4>Architects hate this.
+          <br />
+          <small>Learn how to build lasting software with this one weird trick.</small>
+        </h4>
       </section>
 
       <section>
         <section>
-          <h1>problems with monoliths</h1>
-        </section>
-
-        <section data-background="https://i.ytimg.com/vi/qJJog4BJrUw/maxresdefault.jpg">
-          <h1>a whole new (modular) world</h1>
-        </section>
-
-        <section data-background="http://www.chemistryexplained.com/photos/molecular-structure-3416.jpg">
-          <h1>atoms, molecules, composition</h1>
+          <h1>do you think design is important?</h1>
         </section>
 
         <section>
-          <h1>keeping things in sync</h1>
-          <img width="600px" src="https://media.giphy.com/media/5lRYiWrEWarHq/giphy.gif"></img>
+          <video preload="auto" autoPlay muted loop>
+            <source src="http://i.imgur.com/c2d5ttY.mp4" type="video/mp4">
+            </source>
+          </video>
         </section>
 
-        <section>
-          <img src="http://static.rogerebert.com/uploads/movie/movie_poster/the-butterfly-effect-2004/large_gXnNltCrm5feEEa3BytYy6jwF6v.jpg">
-        </section>
-
-        <section>
-          <img src="https://uk.newonnetflix.info/artwork/70056060.jpg?1458416049">
-        </section>
-
-        <section data-background="https://media.licdn.com/mpr/mpr/p/7/005/082/2bf/228cb73.jpg">
-          <h1>the butterfly effect</h1>
-        </section>
-
-        <section>
-          <h2>one massive repository in your left hand</h1>
-          <h2 class="fragment">a bunch of distributed repositories in your right</h2>
-          <h3 class="fragment">which one should you pick?</h3>
-          <img class="fragment" width="450px" src="https://s-media-cache-ak0.pinimg.com/236x/c2/5a/7b/c25a7b04e46f90a9588858f4b25e978a.jpg"></img>
-        </section>
-      </section>
-
-      <section data-background="http://orig08.deviantart.net/9f13/f/2010/279/5/7/enter_the_matrix_alt__cd_cover_by_ivanvalladares-d307lkb.jpg">
-        <h2 class="fragment">monorepo</h2>
-      </section>
-
-      <section>
-        <h1>a monolithic repository</h1>
-        picture of a system of connected parts inside a whole
-      </section>
-
-      <section>
-        <h1>a microlithic repository</h1>
-        picture of a system of connected parts each separate
-        obvious multiple versions of same parts
-      </section>
-
-      <section>
-        <h1>a monorepository</h1>
-        picture of those same separate parts inside a container
-      </section>
-
-      <section>
-        <img width="600px" src="https://cdn.meme.am/cache/instances/folder877/400x/61675877.jpg"></img>
-      </section>
-
-      <section>
-        <section>
-          <h1>creation and setup</h1>
-        </section>
-
-        <section>
-          <pre>
-            <code>
-$ mkdir monorepo
-$ cd monorepo
-$ npm i -g lerna@prerelease
-$ lerna init --independant
-            </code>
-          </pre>
-        </section>
-
-        <section>
-          <pre>
-            <code>
-$ ls
-.git
-packages
-lerna.json
-package.json
-            </code>
-          </pre>
-        </section>
-
-        <section>
-          <pre>
-            <code>
-$ cat lerna.json
-{
-  "lerna": "2.0.0-beta.30",
-  "version": "independent"
-}
-
-$ cat package.json
-{
-  "devDependencies": {
-    "lerna": "2.0.0-beta.30"
-  }
-}
-            </code>
-          </pre>
+        <section data-background="images/10.jpg">
+          <h1>good architecture</h1>
+          <h2>is less expensive than</h2>
+          <h1>bad architecture</h1>
         </section>
       </section>
 
       <section>
         <section>
-          <h1>report and take ownership of issues</h1>
-        </section>
-
-        <section>
-          <h1>without a monorepository</h1>
-          show a browser with issues tabs for a number of projects
-        </section>
-
-        <section>
-          <h1>with a monorepository</h1>
-          show a github issues page for a monorepository with labels and tags for the individual projects
-        </section>
-      </section>
-
-      <section>
-        <section>
-          <h1>develop a change across a few products</h1>
-        </section>
-
-        <section>
-          <h1>without a monorepository</h1>
-          show a taskbar with 4 atom windows open
-        </section>
-
-        <section>
-          <h1>with a monorepository</h1>
-          show a single atom window with a taskbar showing the internal projects
-        </section>
-      </section>
-
-      <section>
-        <section>
-          <h1>test and validate that change</h1>
-        </section>
-
-        <section>
-          <h1>without a monorepository</h1>
-          show a taskbar with 4 atom windows open
-        </section>
-
-        <section>
-          <h1>with a monorepository</h1>
-          show a single atom window with a taskbar showing the internal projects
-        </section>
-      </section>
-
-      <section>
-        <section>
-          <h1>release your changes</h1>
-          <h2>across all affected modules</h2>
-        </section>
-
-        <section>
-          <h1>without a monorepository</h1>
-          show a number of PR's
-        </section>
-
-        <section>
-          <h1>with a monorepository</h1>
-          show a single PR
-          discuss atomicity
-        </section>
-      </section>
-
-      <section>
-        <section>
-          <h1>rollback a change</h1>
-          <h2>across all affected modules <small class="fragment">again</small></h2>
-        </section>
-
-        <section>
-          <h1>without a monorepository</h1>
-          discuss the avg ttf (time to fix)
-        </section>
-
-        <section>
-          <h1>with a monorepository</h1>
-          avg ttf is smaller due to fewer projects to PR and deploy separately
-        </section>
-      </section>
-
-      <section data-background="http://i.kinja-img.com/gawker-media/image/upload/t_original/1230443571245593235.jpg">
-        <h1><small>agents of</small>S . O . L . I . D</h1>
-      </section>
-
-      <section>
-        <h1>S(ingle responsibility)</h1>
-        <h1 class="fragment">O(pen closed)</h1>
-        <h1 class="fragment" style="opacity: 0.2;">L(iskvoc substitution)</h1>
-        <h1 class="fragment" style="opacity: 0.2;">I(terface segregation)</h1>
-        <h1 class="fragment" style="opacity: 0.2;">D(ependency inversion)</h1>
-      </section>
-
-      <section>
-        <section>
-          <h1>S(ingle Responsibility)</h1>
-          <h2>a module should have one, and only one, reason to change</h2>
-        </section>
-
-        <section>
-
+          <h1>how do we communicate to each other with code?</h1>
         </section>
 
         <section>
           <pre>
             <code class="hljs javascript" data-trim data-noescape>
-            </code>
-          </pre>
-        </section>
+// if called without javascript, returns false
 
-        <section>
-        </section>
-
-        <section>
-          <pre>
-            <code>
-            </code>
-          </pre>
-        </section>
-      </section>
-
-      <section>
-        <section>
-          <h1>O(pen Closed)</h1>
-          <h2>open to extension, closed to modification</h2>
-        </section>
-
-        <section>
-          <pre>
-            <code class="hljs javascript" data-trim data-noescape>
-function cache () {
-  const cache = redis.connect(REDIS_CONN)
-
-  return {
-    get: (key) => { return cache.get(key); },
-    set: (key, val, ttl) => { return cache.set(key, val, ttl); },
-    del: (key) => { return cache.del(key); },
-  };
-}
-            </code>
-          </pre>
-        </section>
-      </section>
-
-        <section>
-          <pre>
-            <code class="hljs javascript" data-trim data-noescape>
-function cache () {
-  const cache = <mark>redis.connect(REDIS_CONN)</mark>
-
-  return {
-    get: (key) => { return cache.get(key); },
-    set: (key, val, ttl) => { return cache.set(key, val, ttl); },
-    del: (key) => { return cache.del(key); },
-  };
-}
-            </code>
-          </pre>
-        </section>
-      </section>
-
-        <section>
-          <pre>
-            <code class="hljs javascript" data-trim data-noescape>
-function cache (<mark>CacheEngine, params</mark>) {
-  const cache = <mark>CacheEngine(params);</mark>
-
-  return {
-    get: (key) => { return cache.get(key); },
-    set: (key, val, ttl) => { return cache.set(key, val, ttl); },
-    del: (key) => { return cache.del(key); },
-  };
+function javascriptEnabled (){
+  return true;
 }
             </code>
           </pre>
         </section>
 
         <section>
-          <h1>how does a monorepository help?</h1>
-          filesystem showing a few server projects
-          make it clear that youd likely call the first on a redis cache
-          then a memory cache
-          then a node-lru cache
-
-          rule of 3, refactor into one base with a couple of much simpler adaptors
+          <img src="images/wat2.jpg"></img>
         </section>
-      </section>
 
-      <section>
-        <div class="horizontal-flex-container">
-          <div class="horizontal-flex-item.left">
-            <img style="display: block;" src="https://pbs.twimg.com/profile_images/1533612762/avatar_400x400.png"></img>
-            <img style="display: block;" src="https://pbs.twimg.com/profile_images/1413499142/dave_gnome_head.jpg"></img>
-          </div>
-          <div class="horizontal-flex-item">
-            <h2>D(on't) R(epeat) Y(ourself)</h2>
-            <h3>andy hunt and dave thomas</h3>
-            <h3>(the pragmatic programmer)</h3>
+        <section>
+          <pre>
+            <code class="hljs javascript">
+var fStr = "var callbackFunction = function (count) {";
+fStr += "  if (count > 3) {";
+fStr += "    callback(httpRequest);";
+fStr += "  }";
+fStr += "}";
+
+eval (fStr);
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <img src="images/wat.jpg"></img>
+        </section>
+
+        <section>
+          <pre>
+            <code class="hljs javascript">
+// if called without javascript, returns false
+
+function javascriptEnabled (){
+  return true;
+}
+            </code>
+          </pre>
+        </section>
+
+        <section data-background="images/communication-group-1940x900_35361.jpg">
+          <h1>Laws of Communication</h1>
+        </section>
+
+        <section>
           <div>
+            <div class="horizontal-flex-container">
+              <img class="horizontal-flex-item left" src="images/conway.png"></img>
+              <div class="horizontal-flex-item">
+                <h2>organisation are contrained to produce designs which are copies of their communication structures</h2>
+                <h3>melvin conway</h3>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div style="height: 35vh;">
+            <img max-height: "100%" src="images/monolith.jpg"></img>
+          </div>
+          <h1>what does your organisation look like?</h1>
+          <div style="height: 35vh; display: flex; flex-direction: row">
+            <div style="width: 50vw"><img src="images/monopurpose.jpg"></img>
+            </div>
+            <div style="width: 50vw"><img src="images/monorepo.jpg"></img>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h1>Who is responsible for enforcing code quality?</h1>
+        </section>
+
+        <section>
+          <img src="images/fTTBLia.gif" width="1200px"></img>
+        </section>
+
+        <section>
+          <div>
+            <div class="horizontal-flex-container">
+              <img class="horizontal-flex-item left" src="images/T4QKBj-E.jpeg"></img>
+              <div class="horizontal-flex-item">
+                <h2>it's harder to read code than to write it</h2>
+                <h3>joel (on software) spolsky</h3>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section data-show-mono-footer=true>
+        <section style="background-image: url(images/monolith.jpg)" class="image-slide" data-dim-mono-els="1,2">
+          <h1>monolith</h1>
+        </section>
+
+        <section style="background-image: url(images/monopurpose.jpg)" class="image-slide" data-dim-mono-els="0,2">
+          <h1>monopurpose</h1>
+        </section>
+
+        <section style="background-image: url(images/monorepo.jpg)" class="image-slide" data-dim-mono-els="0,1">
+          <h1>monorepo</h1>
+        </section>
+      </section>
+
+      <section data-show-mono-footer=true>
+        <section style="background-image: url(images/head2head.jpg)" class="image-slide">
+          <h1>Mono a Mono <small class="fragment">a mono</small></h1>
+        </section>
+
+        <section data-dim-mono-els="0,1,2">
+          <h1>Deploy a release</h1>
+        </section>
+
+        <section data-dim-mono-els="1,2">
+          <pre>
+            <code class="hljs bash">
+ $ npm run deploy
+            </code>
+          </pre>
+        </section>
+
+        <section data-dim-mono-els="0,2">
+          <pre>
+            <code class="hljs bash">
+$ cd project1; npm run deploy
+$ cd project2; npm run deploy
+$ cd project3; npm run deploy
+...
+            </code>
+          </pre>
+        </section>
+
+        <section data-dim-mono-els="0,1">
+          <pre>
+            <code class="hljs bash">
+$ npm run deploy
+            </code>
+          </pre>
+        </section>
+
+        <section data-dim-mono-els="0,1,2">
+          <h1>Share common functionality between projects</h1>
+        </section>
+
+        <section data-dim-mono-els="1,2">
+          <h1>can't modularise just one function</h1>
+          <h2>have to bundle the entire app and expose what you want</h2>
+        </section>
+
+        <section data-dim-mono-els="0,2">
+          <pre>
+            <code class="hljs javascript">
+module.exports = function leftPad () {
+  // ... break npm
+};
+            </code>
+          </pre>
+        </section>
+
+        <section data-dim-mono-els="0,1">
+          <pre>
+            <code class="hljs javascript">
+module.exports = function isThirteen () {
+  // https://github.com/jezen/is-thirteen
+  // ... you won't believe how thorough
+  // and well tested this module is.
+};
+            </code>
+          </pre>
+        </section>
+
+        <section data-dim-mono-els="0,1,2">
+          <h1>make atomic changes to shared dependencies</h1>
+        </section>
+
+        <section data-dim-mono-els="1,2">
+          <h1>Can't do this one either</h1>
+        </section>
+
+        <section data-dim-mono-els="0,2">
+          <pre>
+            <code class="hljs bash">
+$ cd project1; npm run deploy
+$ cd project2; npm run deploy
+$ cd project3; npm run deploy
+...
+            </code>
+          </pre>
+        </section>
+
+        <section data-dim-mono-els="0,1">
+          <pre>
+            <code class="hljs bash">
+$ git add -A
+$ git commit --amend --no-edit
+$ git push -u origin master -f # just kidding, please don't do this
+            </code>
+          </pre>
+        </section>
+
+        <section data-dim-mono-els="0,1">
+          <pre>
+            <code class="hljs bash">
+$ # make required changes
+$ git add -A
+$ git commit # write a meaningful commit message
+$ git push -u origin branchName
+$ # open PR
+$ git checkout master
+$ npm run deploy # calculates changes, bumps dependency versions, deploys
+            </code>
+          </pre>
+        </section>
+      </section>
+
+      <section>
+        <div class="Rtable Rtable--4cols">
+          <div class="Rtable-cell"></div>
+          <div class="Rtable-cell">Deploy release</div>
+          <div class="Rtable-cell">Share functionality</div>
+          <div class="Rtable-cell">Update dependencies</div>
+
+          <div class="Rtable-cell">
+            <img src="images/monolith.jpg">
+          </div>
+          <div class="Rtable-cell">
+            <img src="images/tick.png"></img>
+          </div>
+          <div class="Rtable-cell">
+            <img src="images/cross.png"></img>
+          </div>
+          <div class="Rtable-cell">
+            <img src="images/cross.png"></img>
+          </div>
+
+          <div class="Rtable-cell">
+            <img src="images/monopurpose.jpg">
+          </div>
+          <div class="Rtable-cell">
+            <img src="images/cross.png"></img>
+          </div>
+          <div class="Rtable-cell">
+            <img src="images/tick.png"></img>
+          </div>
+          <div class="Rtable-cell">
+            <img src="images/cross.png"></img>
+          </div>
+
+          <div class="Rtable-cell">
+            <img src="images/monorepo.jpg">
+          </div>
+          <div class="Rtable-cell">
+            <img src="images/tick.png"></img>
+          </div>
+          <div class="Rtable-cell">
+            <img src="images/tick.png"></img>
+          </div>
+          <div class="Rtable-cell">
+            <img src="images/tick.png"></img>
+          </div>
         </div>
       </section>
 
       <section>
-        <h1>authorisation logic flow express middleware</h1>
-      </section>
+        <section>
+          <h1>but is it all smiles and rainbows?</h1>
+        </section>
 
-      <section>
-        <h1>but is it all smiles and rainbows?</h1>
-      </section>
+        <section>
+          <h1>loss of version information</h1>
+        </section>
 
-      <section>
-        <h1>loss of version information</h1>
-      </section>
-
-      <section>
-        <h1>build and test time</h1>
-      </section>
-
-      <section>
-        <h1>git slow down</h1>
-      </section>
-
-      <section>
-        <h1>permissions / fine grained ownership</h1>
-      </section>
-
-      <section>
-        <h1>release all at once</h1>
-      </section>
-
-      <section>
-        <h1>open-closed source software</h1>
+        <section>
+          <h1>tooling</h1>
+          <br />
+          <h3 class="fragment">build and test</h3>
+          <h3 class="fragment">repository size</h3>
+          <h3 class="fragment">permission</h3>
+        </section>
       </section>
 
       <section>
@@ -461,6 +359,9 @@ function cache (<mark>CacheEngine, params</mark>) {
 
       <section>
         <h1>transition path</h1>
+      </section>
+
+      <section class="image-slide" style="background-image: url(images/powerisyours.jpg)">
       </section>
 
       <section class="center">

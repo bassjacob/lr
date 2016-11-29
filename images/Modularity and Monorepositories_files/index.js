@@ -68,7 +68,7 @@ function growCodeBlock() {
 }
 
 Reveal.initialize({
-  center: false,
+  center: true,
   controls: false,
   fragments: true,
   history: true,
@@ -100,6 +100,7 @@ Reveal.initialize({
       return !!document.querySelector('pre code');
     },
     callback: function() {
+      growCodeBlock()
       hljs.initHighlightingOnLoad();
     }
   }, {
@@ -111,29 +112,4 @@ Reveal.initialize({
   }]
 });
 
-function showMonoFooter (event) {
-  const curr = event.currentSlide;
-  const monoFooter = document.querySelector('footer.mono-footer');
-
-  if (curr.dataset.showMonoFooter || curr.parentNode.dataset.showMonoFooter) {
-    monoFooter.style.opacity = 1;
-    const toDim = curr.dataset.dimMonoEls || "";
-    const parsedToDim = toDim.split(',').map(e => parseInt(e));
-
-    monoFooter.querySelectorAll('div.footer-item').forEach((e, i) => {
-      if (parsedToDim.includes(i)) e.style.opacity = 0.1;
-      else e.style.opacity = 1;
-    });
-  } else {
-    document.querySelector('footer').style.opacity = 0;
-  }
-}
-
-Reveal.addEventListener('slidechanged', function (event) {
-  showMonoFooter(event);
-  growCodeBlock();
-});
-
-Reveal.addEventListener('ready', function (event) {
-  showMonoFooter(event);
-});
+Reveal.addEventListener('slidechanged', growCodeBlock);

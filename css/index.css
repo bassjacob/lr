@@ -2,6 +2,19 @@ body {
   background-color: #2b0138;
 }
 
+.reveal pre code {
+  max-height: 100%;
+}
+
+.reveal pre {
+  margin: auto;
+}
+
+.reveal .slides>section,
+.reveal .slides>section>section {
+  padding: 0;
+}
+
 .reveal .horizontal-flex-container {
   display: flex;
   height: 100%;
@@ -20,18 +33,111 @@ body {
   max-width: 25%;
 }
 
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  width: 100%;
+  background-color: rgba(1, 1, 1, 0.7);
+}
+
 .reveal h1 {
   color: #ffdf9b;
-  background-color: rgba(1, 1, 1, 0.7);
 }
 
 .reveal h2 {
   color: #a571b6;
-  background-color: rgba(1, 1, 1, 0.7);
 }
 
 .reveal h3,
 .reveal h4 {
   color: #7888b9;
-  background-color: rgba(1, 1, 1, 0.7);
+}
+
+.mono-footer {
+  position: fixed;
+  height: 10vh;
+  width: 100%;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 1s;
+}
+
+.footer-item {
+  height: 100%;
+  width: 100%;
+  border: thin solid black;
+  transition-property: opacity;
+  transition-duration: 2s;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: black;
+  background-position: center;
+}
+
+.footer-item.hollow {
+  opacity: 0.25;
+}
+
+.reveal .slides>section,
+.reveal .slides>section>section {
+  height: 100vh !important;
+  width: 100vw !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.reveal .slides > section.image-slide,
+.reveal .slides > section > section.image-slide {
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+.Rtable {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 3em 0;
+  padding: 0;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.Rtable-cell {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%; // Default to full width
+  padding: 0.8em 1.2em;
+  overflow: hidden; // Or flex might break
+  list-style: none;
+  border: solid 3px white;
+}
+
+.Rtable--2cols>.Rtable-cell {
+  width: 50%;
+}
+
+.Rtable--3cols>.Rtable-cell {
+  width: 33.33%;
+}
+
+.Rtable--4cols>.Rtable-cell {
+  width: 25%;
+}
+
+.Rtable--5cols>.Rtable-cell {
+  width: 20%;
+}
+
+.Rtable--6cols>.Rtable-cell {
+  width: 16.6%;
 }

@@ -1,0 +1,26 @@
+insert callbacks using visual cues -> monolith 
+tangle
+clean
+
+
+modularity and monorepositories
+
+hi, my name is jacob bass. i work at thinkmill, a developer lead company focused on delivering great user experiences as well as building hard hitting open source projects. and today, i have a question for you.
+
+do you think software architecture is important?
+
+intro: 5min -> sarch is important and why
+
+monolithic
+monopurpose
+monorepo
+
+body: 20min
+
+mono v mono v mono -> mono wins 7min
+
+
+
+a walk through of dev of a monorepo feature 13 min
+
+outro: 5min -> sarch is important, you see

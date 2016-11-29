@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://127.0.0.1:8080/#/2/7 -->
+<html class=" js no-mobile desktop no-ie chrome chrome54 root-section gradient rgba opacity textshadow multiplebgs boxshadow borderimage borderradius cssreflections csstransforms csstransitions no-touch no-retina fontface domloaded w-1600 gt-240 gt-320 gt-480 gt-640 gt-768 gt-800 gt-1024 gt-1280 gt-1440 lt-1680 lt-1920 no-portrait landscape" id="index-page"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Jacob Bass">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <title>Modularity and Monorepositories</title>
+
+  <link rel="stylesheet" href="./Modularity and Monorepositories_files/reveal.css">
+  <link rel="stylesheet" href="./Modularity and Monorepositories_files/black.css" id="theme">
+  <link rel="stylesheet" href="./Modularity and Monorepositories_files/gruvbox-dark.min.css">
+  <link rel="stylesheet" href="./Modularity and Monorepositories_files/index.css"><script type="text/javascript" src="./Modularity and Monorepositories_files/highlight.js"></script><script type="text/javascript" src="./Modularity and Monorepositories_files/zoom.js"></script><script type="text/javascript" src="./Modularity and Monorepositories_files/notes.js"></script>
+</head>
+
+<body style="transition: -webkit-transform 0.8s ease;">
+  <div class="reveal slide center" role="application" data-transition-speed="default" data-background-transition="fade">
+    <div class="slides" style="width: 1600px; height: 830px;">
+      <section class="past" style="top: 167px; display: block;" hidden="" aria-hidden="true">
+        <h1>Modularity and Monorepositories</h1>
+        <br>
+        <br>
+        <div>
+          <h4>Architects hate this.
+            <br>
+            <small>Learn how to build lasting software with this one weird trick.</small>
+          </h4>
+        </div>
+      </section>
+
+      <section class="stack past" style="top: 0px; display: block;" data-previous-indexv="4" hidden="" aria-hidden="true">
+        <section style="top: 306px; display: none;" class="past" hidden="" aria-hidden="true">
+          <h1>is software architecture important?</h1>
+        </section>
+
+        <section data-background="http://www.asergeev.com/pictures/archives/2006/494/jpeg/10.jpg" class="past" data-background-image="http://www.asergeev.com/pictures/archives/2006/494/jpeg/10.jpg" style="top: 260px; display: none;" hidden="" aria-hidden="true">
+          <div class="fragment visible" data-fragment-index="0">
+            <h1>if you think good architecture is expensive...</h1>
+            <h2>try bad architecture</h2>
+          </div>
+        </section>
+
+        <section class="past" style="top: 164.5px; display: none;" hidden="" aria-hidden="true">
+          <img src="./Modularity and Monorepositories_files/bad-arch1.jpg">
+        </section>
+
+        <section class="past" style="top: 167px; display: block;" hidden="" aria-hidden="true">
+          <img src="./Modularity and Monorepositories_files/bad-arch3.jpg">
+        </section>
+
+        <section class="" style="top: 28.5px; display: block;" aria-hidden="true">
+          <video preload="auto" autoplay="" muted="" loop="">
+            <source src="http://i.imgur.com/c2d5ttY.mp4" type="video/mp4">
+            
+          </video>
+        </section>
+      </section>
+
+      <section class="stack present" style="top: 0px; display: block;" data-previous-indexv="6">
+        <section class="past" style="top: 306px; display: none;" hidden="" aria-hidden="true">
+          <h1>how do we communicate to each other with code?</h1>
+        </section>
+
+        <section class="past" style="top: 219.5px; display: none;" hidden="" aria-hidden="true">
+          <pre style="width: 100%;">            <code class="hljs javascript" style="min-height: 100%; overflow: hidden; font-size: 56px; max-height: 90vh; line-height: 1em;">
+<span class="hljs-comment">// if called without javascript, returns false</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">javascriptEnabled</span> (<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+}
+            </code>
+          </pre>
+        </section>
+
+        <section class="past" style="top: 255px; display: none;" hidden="" aria-hidden="true">
+          <pre style="width: 100%;">            <code class="hljs javascript" data-trim="" data-noescape="" style="min-height: 100%; overflow: hidden; font-size: 53px; max-height: 90vh; line-height: 1em;"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doesNotReturnZero</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// <span class="hljs-doctag">FIXME:</span> hardcoding to zero due to client reqs</span>
+
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}</code>
+          </pre>
+        </section>
+
+        <section class="past" style="top: 176px; display: none;" hidden="" aria-hidden="true">
+          <pre style="width: 100%;">            <code class="hljs javascript" style="min-height: 100%; overflow: hidden; font-size: 47px; max-height: 90vh; line-height: 1em;">
+<span class="hljs-keyword">var</span> fStr = <span class="hljs-string">"var callbackFunction = function (count) {"</span>;
+fStr += <span class="hljs-string">"  if (count &gt; 3) {"</span>;
+fStr += <span class="hljs-string">"    callback(httpRequest);"</span>;
+fStr += <span class="hljs-string">"  }"</span>;
+fStr += <span class="hljs-string">"}"</span>;
+
+<span class="hljs-built_in">eval</span> (fStr);
+            </code>
+          </pre>
+        </section>
+
+        <section class="past" style="top: 191.5px; display: none;" hidden="" aria-hidden="true">
+          <pre style="width: 100%;">            <code class="hljs javascript" style="min-height: 100%; overflow: hidden; font-size: 56px; max-height: 90vh; line-height: 1em;">
+<span class="hljs-comment">// if called without javascript, returns false</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">javascriptEnabled</span> (<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+}
+            </code>
+          </pre>
+        </section>
+
+        <section data-background="http://www.incimages.com/uploaded_files/image/1940x900/communication-group-1940x900_35361.jpg" class="past" data-background-image="http://www.incimages.com/uploaded_files/image/1940x900/communication-group-1940x900_35361.jpg" style="top: 328px; display: block;" hidden="" aria-hidden="true">
+          <h1>Laws of Communication</h1>
+        </section>
+
+        <section data-background="http://deborahsdescendants.com/wp-content/uploads/2016/08/quid-pro-quo.jpg" class="past" data-background-image="http://deborahsdescendants.com/wp-content/uploads/2016/08/quid-pro-quo.jpg" style="top: 328px; display: block;" hidden="" aria-hidden="true">
+          <h1>Quid Pro Quo</h1>
+        </section>
+
+        <section data-background="http://www.bioethics.com/wp-content/uploads/2014/03/genetic-ethics1.jpg" class="present" data-background-image="http://www.bioethics.com/wp-content/uploads/2014/03/genetic-ethics1.jpg" style="top: 328px; display: block;">
+          <h1>The Genetic Method</h1>
+        </section>
+
+        <section class="future" style="top: 125.5px; display: block;" hidden="" aria-hidden="true">
+          <div class="horizontal-flex-container">
+            <img class="horizontal-flex-item left" src="./Modularity and Monorepositories_files/conway.png">
+            <div class="horizontal-flex-item">
+              <h2>organisation are contrained to produce designs which are copies of their communication structures</h2>
+              <h3>melvin conway</h3>
+            </div>
+          </div>
+        </section>
+
+        <section class="future" style="top: 189.5px; display: block;" hidden="" aria-hidden="true">
+          <img src="./Modularity and Monorepositories_files/microsoftguns.jpg">
+        </section>
+      </section>
+
+      <section class="stack future" style="top: 0px; display: block;" data-previous-indexv="0" hidden="" aria-hidden="true">
+        <section style="top: 271px; display: block;" class="" aria-hidden="true">
+          <h1>Who is responsible for enforcing code quality?</h1>
+        </section>
+
+        <section class="future" style="top: 129.5px; display: block;" hidden="" aria-hidden="true">
+          <img src="./Modularity and Monorepositories_files/fTTBLia.gif" width="1200px">
+        </section>
+
+        <section class="future" style="top: 188px; display: none;" hidden="" aria-hidden="true">
+          <div class="horizontal-flex-container">
+            <img class="horizontal-flex-item left" src="./Modularity and Monorepositories_files/T4QKBj-E.jpeg">
+            <div class="horizontal-flex-item">
+              <h2>it's harder to read code than to write it</h2>
+              <h3>joel (on software) spolsky</h3>
+            </div>
+          </div>
+        </section>
+
+        <section data-background="http://chrisoatley.com/wp-content/uploads/2012/10/kronk-shoulder-devil.jpg" class="future" data-background-image="http://chrisoatley.com/wp-content/uploads/2012/10/kronk-shoulder-devil.jpg" style="top: 363px; display: none;" hidden="" aria-hidden="true">
+          <h1>save me from myself</h1>
+        </section>
+      </section>
+
+      <section class="stack future" style="top: 0px; display: block;" data-previous-indexv="0" hidden="" aria-hidden="true">
+        <section data-background="http://1.bp.blogspot.com/_Yjvi7vpII8Y/TJzpxPbayZI/AAAAAAAABwc/yha6hH7KsxA/s1600/2001-04.jpeg" data-background-image="http://1.bp.blogspot.com/_Yjvi7vpII8Y/TJzpxPbayZI/AAAAAAAABwc/yha6hH7KsxA/s1600/2001-04.jpeg" style="top: 328px; display: block;" class="" aria-hidden="true">
+          <h1>problems with monoliths</h1>
+        </section>
+
+        <section class="future" style="top: 363px; display: none;" hidden="" aria-hidden="true">
+          <h1>tight coupling of modules</h1>
+        </section>
+
+        <section class="future" style="top: 363px; display: none;" hidden="" aria-hidden="true">
+          <h1>shared runtime state</h1>
+        </section>
+
+        <section class="future" style="top: 363px; display: none;" hidden="" aria-hidden="true">
+          <h1>domain appropriate choices</h1>
+        </section>
+      </section>
+
+      <section class="stack future" style="top: 0px; display: none;" data-previous-indexv="0" hidden="" aria-hidden="true">
+        <section data-background="https://i.ytimg.com/vi/qJJog4BJrUw/maxresdefault.jpg" data-background-image="https://i.ytimg.com/vi/qJJog4BJrUw/maxresdefault.jpg" style="top: 363px; display: none;" class="" aria-hidden="true">
+          <h1>a whole new (modular) world</h1>
+        </section>
+
+        <section data-background="http://www.chemistryexplained.com/photos/molecular-structure-3416.jpg" class="future" data-background-image="http://www.chemistryexplained.com/photos/molecular-structure-3416.jpg" style="top: 306px; display: none;" hidden="" aria-hidden="true">
+          <h1>we're all just protons, neutrons, electrons</h1>
+        </section>
+
+        <section class="future" style="top: 73.5px; display: none;" hidden="" aria-hidden="true">
+          <h1>keeping things in sync</h1>
+          <img width="600px" src="./Modularity and Monorepositories_files/giphy.gif">
+        </section>
+
+        <section data-background="https://media.licdn.com/mpr/mpr/p/7/005/082/2bf/228cb73.jpg" class="future" data-background-image="https://media.licdn.com/mpr/mpr/p/7/005/082/2bf/228cb73.jpg" style="top: 363px; display: none;" hidden="" aria-hidden="true">
+          <h1>the butterfly effect</h1>
+        </section>
+
+        <section class="future" style="top: 114px; display: none;" hidden="" aria-hidden="true">
+          <h2>one massive repository in your left hand</h2>
+          <h2 class="fragment" data-fragment-index="0">a bunch of distributed repositories in your right</h2>
+          <h3 class="fragment" data-fragment-index="1">which one should you pick?</h3>
+          <img class="fragment" width="450px" src="./Modularity and Monorepositories_files/c25a7b04e46f90a9588858f4b25e978a.jpg" data-fragment-index="2">
+        </section>
+      </section>
+
+      <section data-background="http://orig08.deviantart.net/9f13/f/2010/279/5/7/enter_the_matrix_alt__cd_cover_by_ivanvalladares-d307lkb.jpg" data-background-image="http://orig08.deviantart.net/9f13/f/2010/279/5/7/enter_the_matrix_alt__cd_cover_by_ivanvalladares-d307lkb.jpg" class="future" style="top: 430px; display: none;" hidden="" aria-hidden="true">
+      </section>
+
+      <section class="future" style="top: 363px; display: none;" hidden="" aria-hidden="true">
+        <h1 class="fragment fade-out" data-fragment-index="0">a monolithic repository</h1>
+      </section>
+
+      <section hidden="" aria-hidden="true" class="future" style="top: 363px; display: none;">
+        <h1 class="fragment fade-out" data-fragment-index="0">a microlithic repository</h1>
+      </section>
+
+      <section hidden="" aria-hidden="true" class="future" style="top: 363px; display: none;">
+        <h1 class="fragment fade-out" data-fragment-index="0">a mono-repository</h1>
+      </section>
+
+      <section hidden="" aria-hidden="true" class="future" style="top: 430px; display: none;">
+        <img width="600px" src="./Modularity and Monorepositories_files/61675877.jpg">
+      </section>
+
+      <section hidden="" aria-hidden="true" class="stack future" style="top: 430px; display: none;" data-previous-indexv="0">
+        <section style="top: 430px; display: none;">
+          <h1>creation and setup</h1>
+        </section>
+
+        <section class="future" aria-hidden="true" style="top: 430px; display: none;">
+          <pre>            <code class="hljs elixir">
+<span class="hljs-variable">$ </span>mkdir monorepo
+<span class="hljs-variable">$ </span>cd monorepo
+<span class="hljs-variable">$ </span>npm i -g lerna<span class="hljs-variable">@prerelease</span>
+<span class="hljs-variable">$ </span>lerna init --independant
+            </code>
+          </pre>
+        </section>
+
+        <section class="future" aria-hidden="true" style="top: 430px; display: none;">
+          <pre>            <code class="hljs stylus">
+$ ls
+<span class="hljs-selector-class">.git</span>
+packages
+lerna<span class="hljs-selector-class">.json</span>
+package<span class="hljs-selector-class">.json</span>
+            </code>
+          </pre>
+        </section>
+
+        <section class="future" aria-hidden="true" style="top: 430px; display: none;">
+          <pre>            <code class="hljs xquery">
+$ cat lerna.json
+{
+  <span class="hljs-string">"lerna"</span>: <span class="hljs-string">"2.0.0-beta.30"</span>,
+  <span class="hljs-string">"version"</span>: <span class="hljs-string">"independent"</span>
+}
+
+$ cat package.json
+{
+  <span class="hljs-string">"devDependencies"</span>: {
+    <span class="hljs-string">"lerna"</span>: <span class="hljs-string">"2.0.0-beta.30"</span>
+  }
+}
+            </code>
+          </pre>
+        </section>
+      </section>
+      <section hidden="" aria-hidden="true" class="future" style="top: 430px; display: none;">
+        <h1>manage issues</h1>
+        <h1>make changes</h1>
+        <h1>release software</h1>
+      </section>
+
+      <section hidden="" aria-hidden="true" class="stack future" style="top: 430px; display: none;" data-previous-indexv="0">
+        <section style="top: 430px; display: none;">
+          <h1>report and take ownership of issues</h1>
+        </section>
+
+        <section class="future" aria-hidden="true" style="top: 430px; display: none;">
+          <h1>without a monorepository</h1>
+          show a browser with issues tabs for a number of projects
+          //picture of github logo with some ideation of failure
+        </section>
+
+
+        <section class="future" aria-hidden="true" style="top: 430px; display: none;">
+          <h1>with a monorepository</h1>
+          show a github issues page for a monorepository with labels and tags for the individual projects
+        </section>
+      </section>
+
+      <section hidden="" aria-hidden="true" class="stack future" style="top: 430px; display: none;" data-previous-indexv="0">
+        <section style="top: 430px; display: none;">
+          <h1>develop a change across a few products</h1>
+        </section>
+
+        <section class="future" aria-hidden="true" style="top: 430px; display: none;">
+          <h1>without a monorepository</h1>
+          show a taskbar with 4 atom windows open
+        </section>
+
+        <section class="future" aria-hidden="true" style="top: 430px; display: none;">
+          <h1>with a monorepository</h1>
+          show a single atom window with a taskbar showing the internal projects
+        </section>
+      </section>
+
+      <section hidden="" aria-hidden="true" class="stack future" style="top: 430px; display: none;" data-previous-indexv="0">
+        <section style="top: 430px; display: none;">
+          <h1>test and validate that change</h1>
+        </section>
+
+        <section class="future" aria-hidden="true" style="top: 430px; display: none;">
+          <h1>without a monorepository</h1>
+          show a taskbar with 4 atom windows open
+        </section>
+
+        <section class="future" aria-hidden="true" style="top: 430px; display: none;">
+          <h1>with a monorepository</h1>
+          show a single atom window with a taskbar showing the internal projects
+        </section>
+      </section>
+
+      <section hidden="" aria-hidden="true" class="stack future" style="top: 430px; display: none;" data-previous-indexv="0">
+        <section style="top: 430px; display: none;">
+          <h1>release your changes</h1>
+          <h2>across all affected modules</h2>
+        </section>
+
+        <section class="future" aria-hidden="true" style="top: 430px; display: none;">
+          <h1>without a monorepository</h1>
+          show a number of PR's
+        </section>
+
+        <section class="future" aria-hidden="true" style="top: 430px; display: none;">
+          <h1>with a monorepository</h1>
+          show a single PR
+          discuss atomicity
+        </section>
+      </section>
+
+      <section hidden="" aria-hidden="true" class="stack future" style="top: 430px; display: none;" data-previous-indexv="0">
+        <section style="top: 430px; display: none;">
+          <h1>rollback a change</h1>
+          <h2>across all affected modules <small class="fragment" data-fragment-index="0">again</small></h2>
+        </section>
+
+        <section class="future" aria-hidden="true" style="top: 430px; display: none;">
+          <h1>without a monorepository</h1>
+          discuss the avg ttf (time to fix)
+        </section>
+
+        <section class="future" aria-hidden="true" style="top: 430px; display: none;">
+          <h1>with a monorepository</h1>
+          avg ttf is smaller due to fewer projects to PR and deploy separately
+        </section>
+      </section>
+
+      <section data-background="http://i.kinja-img.com/gawker-media/image/upload/t_original/1230443571245593235.jpg" data-background-image="http://i.kinja-img.com/gawker-media/image/upload/t_original/1230443571245593235.jpg" hidden="" aria-hidden="true" class="future" style="top: 430px; display: none;">
+        <h1><small>agents of</small>S . O . L . I . D</h1>
+      </section>
+
+      <section hidden="" aria-hidden="true" class="future" style="top: 430px; display: none;">
+        <h1>S(ingle responsibility)</h1>
+        <h1 class="fragment" data-fragment-index="0">O(pen closed)</h1>
+        <h1 class="fragment" style="opacity: 0.2;" data-fragment-index="1">L(iskvoc substitution)</h1>
+        <h1 class="fragment" style="opacity: 0.2;" data-fragment-index="2">I(terface segregation)</h1>
+        <h1 class="fragment" style="opacity: 0.2;" data-fragment-index="3">D(ependency inversion)</h1>
+      </section>
+
+      <section hidden="" aria-hidden="true" class="stack future" style="top: 430px; display: none;" data-previous-indexv="0">
+        <section style="top: 430px; display: none;">
+          <h1>S(ingle Responsibility)</h1>
+          <h2>a module should have one, and only one, reason to change</h2>
+        </section>
+
+        <section class="future" aria-hidden="true" style="top: 430px; display: none;">
+          <h1>O(pen Closed)</h1>
+          <h2>open to extension, closed to modification</h2>
+        </section>
+
+        <section class="future" aria-hidden="true" style="top: 430px; display: none;">
+          <pre>            <code class="hljs javascript" data-trim="" data-noescape=""><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cache</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> cache = redis.connect(REDIS_CONN)
+
+  <span class="hljs-keyword">return</span> {
+    get: (key) =&gt; { <span class="hljs-keyword">return</span> cache.get(key); },
+    set: (key, val, ttl) =&gt; { <span class="hljs-keyword">return</span> cache.set(key, val, ttl); },
+    del: (key) =&gt; { <span class="hljs-keyword">return</span> cache.del(key); },
+  };
+}</code>
+          </pre>
+        </section>
+      </section>
+
+        <section hidden="" aria-hidden="true" class="future" style="top: 430px; display: none;">
+          <pre>            <code class="hljs javascript" data-trim="" data-noescape=""><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cache</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> cache = <mark>redis.connect(REDIS_CONN)</mark>
+
+  <span class="hljs-keyword">return</span> {
+    get: (key) =&gt; { <span class="hljs-keyword">return</span> cache.get(key); },
+    set: (key, val, ttl) =&gt; { <span class="hljs-keyword">return</span> cache.set(key, val, ttl); },
+    del: (key) =&gt; { <span class="hljs-keyword">return</span> cache.del(key); },
+  };
+}</code>
+          </pre>
+        </section>
+      
+
+        <section hidden="" aria-hidden="true" class="future" style="top: 430px; display: none;">
+          <pre>            <code class="hljs javascript" data-trim="" data-noescape=""><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cache</span> (</span><mark><span class="hljs-function"><span class="hljs-params">CacheEngine, params</span></span></mark><span class="hljs-function">) </span>{
+  <span class="hljs-keyword">const</span> cache = <mark>CacheEngine(params);</mark>
+
+  <span class="hljs-keyword">return</span> {
+    get: (key) =&gt; { <span class="hljs-keyword">return</span> cache.get(key); },
+    set: (key, val, ttl) =&gt; { <span class="hljs-keyword">return</span> cache.set(key, val, ttl); },
+    del: (key) =&gt; { <span class="hljs-keyword">return</span> cache.del(key); },
+  };
+}</code>
+          </pre>
+        </section>
+
+        <section hidden="" aria-hidden="true" class="future" style="top: 430px; display: none;">
+          <h1>how does a monorepository help?</h1>
+          filesystem showing a few server projects
+          make it clear that youd likely call the first on a redis cache
+          then a memory cache
+          then a node-lru cache
+
+          rule of 3, refactor into one base with a couple of much simpler adaptors
+        </section>
+      
+
+      <section hidden="" aria-hidden="true" class="future" style="top: 430px; display: none;">
+        <div class="horizontal-flex-container">
+          <div class="horizontal-flex-item.left">
+            <img style="display: block;" src="./Modularity and Monorepositories_files/avatar_400x400.png">
+            <img style="display: block;" src="./Modularity and Monorepositories_files/dave_gnome_head.jpg">
+          </div>
+          <div class="horizontal-flex-item">
+            <h2>D(on't) R(epeat) Y(ourself)</h2>
+            <h3>andy hunt and dave thomas</h3>
+            <h3>(the pragmatic programmer)</h3>
+          <div>
+        </div>
+      </div></div></section>
+
+      <section hidden="" aria-hidden="true" class="future" style="top: 430px; display: none;">
+        <h1>authorisation logic flow express middleware</h1>
+      </section>
+
+      <section hidden="" aria-hidden="true" class="future" style="top: 430px; display: none;">
+        <h1>but is it all smiles and rainbows?</h1>
+      </section>
+
+      <section hidden="" aria-hidden="true" class="future" style="top: 430px; display: none;">
+        <h1>loss of version information</h1>
+      </section>
+
+      <section hidden="" aria-hidden="true" class="future" style="top: 430px; display: none;">
+        <h1>build and test time</h1>
+      </section>
+
+      <section hidden="" aria-hidden="true" class="future" style="top: 430px; display: none;">
+        <h1>git slow down</h1>
+      </section>
+
+      <section hidden="" aria-hidden="true" class="future" style="top: 430px; display: none;">
+        <h1>permissions / fine grained ownership</h1>
+      </section>
+
+      <section hidden="" aria-hidden="true" class="future" style="top: 430px; display: none;">
+        <h1>release all at once</h1>
+      </section>
+
+      <section hidden="" aria-hidden="true" class="future" style="top: 430px; display: none;">
+        <h1>open-closed source software</h1>
+      </section>
+
+      <section hidden="" aria-hidden="true" class="future" style="top: 430px; display: none;">
+        <h1>recap</h1>
+      </section>
+
+      <section hidden="" aria-hidden="true" class="future" style="top: 430px; display: none;">
+        <h1>benefits</h1>
+      </section>
+
+      <section hidden="" aria-hidden="true" class="future" style="top: 430px; display: none;">
+        <h1>transition path</h1>
+      </section>
+
+      <section class="center future" hidden="" aria-hidden="true" style="top: 430px; display: none;">
+        <h1>${whoami:-Jacob Bass}</h1>
+
+        <p>web: www.bassjacob.com</p>
+        <p>email: me@bassjacob.com</p>
+        <p>twitter: @bassjacob</p>
+        <p>github: bassjacob</p>
+      </section>
+    </div>
+  <div class="backgrounds"><div class="slide-background past" data-loaded="true" style="display: block;"></div><div class="slide-background stack past" data-loaded="true" style="display: block;"><div class="slide-background past" data-loaded="true" style="display: none;"></div><div class="slide-background past" data-background-hash="http://www.asergeev.com/pictures/archives/2006/494/jpeg/10.jpgnullnullnullnullnullnullnullnull" data-loaded="true" style="display: none; background-image: url(&quot;http://www.asergeev.com/pictures/archives/2006/494/jpeg/10.jpg&quot;);"></div><div class="slide-background past" style="display: none;" data-loaded="true"></div><div class="slide-background past" style="display: block;" data-loaded="true"></div><div class="slide-background present" style="display: block;" data-loaded="true"></div></div><div class="slide-background stack present" data-loaded="true" style="display: block;"><div class="slide-background past" data-loaded="true" style="display: none;"></div><div class="slide-background past" data-loaded="true" style="display: none;"></div><div class="slide-background past" data-loaded="true" style="display: none;"></div><div class="slide-background past" data-loaded="true" style="display: none;"></div><div class="slide-background past" data-loaded="true" style="display: none;"></div><div class="slide-background past" data-background-hash="http://www.incimages.com/uploaded_files/image/1940x900/communication-group-1940x900_35361.jpgnullnullnullnullnullnullnullnull" style="display: block; background-image: url(&quot;http://www.incimages.com/uploaded_files/image/1940x900/communication-group-1940x900_35361.jpg&quot;);" data-loaded="true"></div><div class="slide-background past" data-background-hash="http://deborahsdescendants.com/wp-content/uploads/2016/08/quid-pro-quo.jpgnullnullnullnullnullnullnullnull" style="display: block; background-image: url(&quot;http://deborahsdescendants.com/wp-content/uploads/2016/08/quid-pro-quo.jpg&quot;);" data-loaded="true"></div><div class="slide-background present" data-background-hash="http://www.bioethics.com/wp-content/uploads/2014/03/genetic-ethics1.jpgnullnullnullnullnullnullnullnull" style="display: block; background-image: url(&quot;http://www.bioethics.com/wp-content/uploads/2014/03/genetic-ethics1.jpg&quot;);" data-loaded="true"></div><div class="slide-background future" style="display: block;" data-loaded="true"></div><div class="slide-background future" style="display: block;" data-loaded="true"></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background present" data-loaded="true" style="display: block;"></div><div class="slide-background future" data-loaded="true" style="display: block;"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" data-background-hash="http://chrisoatley.com/wp-content/uploads/2012/10/kronk-shoulder-devil.jpgnullnullnullnullnullnullnullnull" style="display: none; background-image: url(&quot;http://chrisoatley.com/wp-content/uploads/2012/10/kronk-shoulder-devil.jpg&quot;);" data-loaded="true"></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background present" data-background-hash="http://1.bp.blogspot.com/_Yjvi7vpII8Y/TJzpxPbayZI/AAAAAAAABwc/yha6hH7KsxA/s1600/2001-04.jpegnullnullnullnullnullnullnullnull" data-loaded="true" style="display: block; background-image: url(&quot;http://1.bp.blogspot.com/_Yjvi7vpII8Y/TJzpxPbayZI/AAAAAAAABwc/yha6hH7KsxA/s1600/2001-04.jpeg&quot;);"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div></div><div class="slide-background stack future" style="display: none;" data-loaded="true"><div class="slide-background present" data-background-hash="https://i.ytimg.com/vi/qJJog4BJrUw/maxresdefault.jpgnullnullnullnullnullnullnullnull" style="display: none; background-image: url(&quot;https://i.ytimg.com/vi/qJJog4BJrUw/maxresdefault.jpg&quot;);" data-loaded="true"></div><div class="slide-background future" data-background-hash="http://www.chemistryexplained.com/photos/molecular-structure-3416.jpgnullnullnullnullnullnullnullnull" style="display: none; background-image: url(&quot;http://www.chemistryexplained.com/photos/molecular-structure-3416.jpg&quot;);" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" data-background-hash="https://media.licdn.com/mpr/mpr/p/7/005/082/2bf/228cb73.jpgnullnullnullnullnullnullnullnull" style="display: none; background-image: url(&quot;https://media.licdn.com/mpr/mpr/p/7/005/082/2bf/228cb73.jpg&quot;);" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div></div><div class="slide-background future" data-background-hash="http://orig08.deviantart.net/9f13/f/2010/279/5/7/enter_the_matrix_alt__cd_cover_by_ivanvalladares-d307lkb.jpgnullnullnullnullnullnullnullnull" style="display: none; background-image: url(&quot;http://orig08.deviantart.net/9f13/f/2010/279/5/7/enter_the_matrix_alt__cd_cover_by_ivanvalladares-d307lkb.jpg&quot;);" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background stack future" style="display: none;"><div class="slide-background past" style="display: none;"></div><div class="slide-background past" style="display: none;"></div><div class="slide-background present" style="display: none;"></div><div class="slide-background future" style="display: none;"></div></div><div class="slide-background future" style="display: none;"></div><div class="slide-background stack future" style="display: none;"><div class="slide-background past" style="display: none;"></div><div class="slide-background past" style="display: none;"></div><div class="slide-background present" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background past" style="display: none;"></div><div class="slide-background past" style="display: none;"></div><div class="slide-background present" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background past" style="display: none;"></div><div class="slide-background past" style="display: none;"></div><div class="slide-background present" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background past" style="display: none;"></div><div class="slide-background past" style="display: none;"></div><div class="slide-background present" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background past" style="display: none;"></div><div class="slide-background past" style="display: none;"></div><div class="slide-background present" style="display: none;"></div></div><div class="slide-background future" data-background-hash="http://i.kinja-img.com/gawker-media/image/upload/t_original/1230443571245593235.jpgnullnullnullnullnullnullnullnull" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background stack future" style="display: none;"><div class="slide-background past" style="display: none;"></div><div class="slide-background past" style="display: none;"></div><div class="slide-background present" style="display: none;"></div></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background center future" style="display: none;"></div></div><div class="progress" style="display: none;"><span></span></div><aside class="controls" style="display: none;"><button class="navigate-left enabled" aria-label="previous slide"></button><button class="navigate-right enabled" aria-label="next slide"></button><button class="navigate-up enabled" aria-label="above slide"></button><button class="navigate-down enabled" aria-label="below slide"></button></aside><div class="slide-number" style="display: block;"><span class="slide-number-a">14</span><span class="slide-number-delimiter">/</span><span class="slide-number-b">75</span></div><div class="speaker-notes" data-prevent-swipe=""></div><div class="pause-overlay"></div><div id="aria-status-div" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px 1px 1px 1px);">
+          The Genetic Method
+        </div></div>
+
+  <script src="./Modularity and Monorepositories_files/head.min.js"></script>
+  <script src="./Modularity and Monorepositories_files/reveal.js"></script>
+  <script src="./Modularity and Monorepositories_files/index.js"></script>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function() {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					head.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					head.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function(msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			console.log('Live reload enabled.');
+		})();
+	}
+	// ]]>
+</script>
+
+
+</body><div></div></html>
