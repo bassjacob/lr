@@ -36,9 +36,13 @@
         </h4>
       </section>
 
+      <section><div class="image" style="background-image: url(images/monorail.jpg)"></div></section>
+
       <section>
         <section>
-          <h1>do you think design is important?</h1>
+          <h1>good <br /> architecture</h1>
+          <h2>costs <span style="color: white">less</span> than</h2>
+          <h1><span style="text-decoration: underline">bad</span> architecture</h1>
         </section>
 
         <section>
@@ -47,66 +51,10 @@
             </source>
           </video>
         </section>
-
-        <section data-background="images/10.jpg">
-          <h1>good architecture</h1>
-          <h2>is less expensive than</h2>
-          <h1>bad architecture</h1>
-        </section>
       </section>
 
       <section>
         <section>
-          <h1>how do we communicate to each other with code?</h1>
-        </section>
-
-        <section>
-          <pre>
-            <code class="hljs javascript" data-trim data-noescape>
-// if called without javascript, returns false
-
-function javascriptEnabled (){
-  return true;
-}
-            </code>
-          </pre>
-        </section>
-
-        <section>
-          <img src="images/wat2.jpg"></img>
-        </section>
-
-        <section>
-          <pre>
-            <code class="hljs javascript">
-var fStr = "var callbackFunction = function (count) {";
-fStr += "  if (count > 3) {";
-fStr += "    callback(httpRequest);";
-fStr += "  }";
-fStr += "}";
-
-eval (fStr);
-            </code>
-          </pre>
-        </section>
-
-        <section>
-          <img src="images/wat.jpg"></img>
-        </section>
-
-        <section>
-          <pre>
-            <code class="hljs javascript">
-// if called without javascript, returns false
-
-function javascriptEnabled (){
-  return true;
-}
-            </code>
-          </pre>
-        </section>
-
-        <section data-background="images/communication-group-1940x900_35361.jpg">
           <h1>Laws of Communication</h1>
         </section>
 
@@ -115,45 +63,20 @@ function javascriptEnabled (){
             <div class="horizontal-flex-container">
               <img class="horizontal-flex-item left" src="images/conway.png"></img>
               <div class="horizontal-flex-item">
-                <h2>organisation are contrained to produce designs which are copies of their communication structures</h2>
+                <h2>organisations are constrained to produce designs which are copies of their communication structures</h2>
                 <h3>melvin conway</h3>
               </div>
             </div>
           </div>
         </section>
-
         <section>
           <div style="height: 35vh;">
             <img max-height: "100%" src="images/monolith.jpg"></img>
           </div>
           <h1>what does your organisation look like?</h1>
           <div style="height: 35vh; display: flex; flex-direction: row">
-            <div style="width: 50vw"><img src="images/monopurpose.jpg"></img>
-            </div>
-            <div style="width: 50vw"><img src="images/monorepo.jpg"></img>
-            </div>
-          </div>
-        </section>
-      </section>
-
-      <section>
-        <section>
-          <h1>Who is responsible for enforcing code quality?</h1>
-        </section>
-
-        <section>
-          <img src="images/fTTBLia.gif" width="1200px"></img>
-        </section>
-
-        <section>
-          <div>
-            <div class="horizontal-flex-container">
-              <img class="horizontal-flex-item left" src="images/T4QKBj-E.jpeg"></img>
-              <div class="horizontal-flex-item">
-                <h2>it's harder to read code than to write it</h2>
-                <h3>joel (on software) spolsky</h3>
-              </div>
-            </div>
+            <div style="width: 50vw"><img src="images/monopurpose.jpg"></img></div>
+            <div style="width: 50vw"><img src="images/monorepo.jpg"></img></div>
           </div>
         </section>
       </section>
@@ -163,13 +86,26 @@ function javascriptEnabled (){
           <h1>monolith</h1>
         </section>
 
+        <section>
+
+        </section>
+
         <section style="background-image: url(images/monopurpose.jpg)" class="image-slide" data-dim-mono-els="0,2">
           <h1>monopurpose</h1>
+        </section>
+
+        <section>
+          google, apple
         </section>
 
         <section style="background-image: url(images/monorepo.jpg)" class="image-slide" data-dim-mono-els="0,1">
           <h1>monorepo</h1>
         </section>
+
+        <section>
+          facebook
+        </section>
+
       </section>
 
       <section data-show-mono-footer=true>
@@ -221,7 +157,7 @@ $ npm run deploy
           <pre>
             <code class="hljs javascript">
 module.exports = function leftPad () {
-  // ... break npm
+  // break npm
 };
             </code>
           </pre>
@@ -234,6 +170,8 @@ module.exports = function isThirteen () {
   // https://github.com/jezen/is-thirteen
   // ... you won't believe how thorough
   // and well tested this module is.
+  // seriously, check out
+  // https://github.com/jezen/is-thirteen/blob/master/test.js#L13
 };
             </code>
           </pre>
@@ -286,9 +224,9 @@ $ npm run deploy # calculates changes, bumps dependency versions, deploys
       <section>
         <div class="Rtable Rtable--4cols">
           <div class="Rtable-cell"></div>
-          <div class="Rtable-cell">Deploy release</div>
-          <div class="Rtable-cell">Share functionality</div>
-          <div class="Rtable-cell">Update dependencies</div>
+          <div class="Rtable-cell">Atomic release deployment</div>
+          <div class="Rtable-cell">Common dependencies across projects</div>
+          <div class="Rtable-cell">Atomic dependency management</div>
 
           <div class="Rtable-cell">
             <img src="images/monolith.jpg">
@@ -331,46 +269,93 @@ $ npm run deploy # calculates changes, bumps dependency versions, deploys
         </div>
       </section>
 
+      <section style="background-image: url(images/monorepo.jpg)" class="image-slide" data-dim-mono-els="0,1">
+        <h1>monorepo</h1>
+      </section>
+
       <section>
         <section>
-          <h1>but is it all smiles and rainbows?</h1>
+          <h1>a brief note on tooling</h1>
+          <h3>this is not a talk on lerna</h3>
         </section>
 
         <section>
-          <h1>loss of version information</h1>
-        </section>
-
-        <section>
-          <h1>tooling</h1>
-          <br />
-          <h3 class="fragment">build and test</h3>
-          <h3 class="fragment">repository size</h3>
-          <h3 class="fragment">permission</h3>
+          <h1>D.I.Y but Y.M.M.V</h1>
         </section>
       </section>
 
       <section>
-        <h1>recap</h1>
+        <section>
+          <h1>set up</h1>
+        </section>
+
+        <section><div class="image" style="background-image: url(images/demo1/setup/init.png)"></div></section>
+        <section><div class="image" style="background-image: url(images/demo1/setup/tree.png)"></div></section>
+        <section><div class="image" style="background-image: url(images/demo1/setup/packagejson.png)"></div></section>
+        <section><div class="image" style="background-image: url(images/demo1/setup/bootstrap.png)"></div></section>
+        <section><div class="image" style="background-image: url(images/demo1/setup/linkage.png)"></div></section>
       </section>
 
       <section>
-        <h1>benefits</h1>
+        <section>
+          <h1>let's add some code</h1>
+        </section>
+        <section><div class="image" style="background-image: url(images/demo1/addcode/babel.png)"></div></section>
+        <section><div class="image" style="background-image: url(images/demo1/addcode/tree.png)"></div></section>
+        <section><div class="image" style="background-image: url(images/demo1/addcode/header.png)"></div></section>
+        <section><div class="image" style="background-image: url(images/demo1/addcode/scripts.png)"></div></section>
       </section>
 
       <section>
-        <h1>transition path</h1>
+        <section>
+          <h1>the developer experience</h1>
+          <video width="600px" preload="auto" autoPlay muted loop>
+            <source src="images/developers.mp4" type="video/mp4">
+            </source>
+          </video>
+        </section>
+
+        <section><div class="image" style="background-image: url(images/demo1/devexp/story.gif)"></div></section>
       </section>
 
-      <section class="image-slide" style="background-image: url(images/powerisyours.jpg)">
+      <section>
+        <section>
+          <h1>make a change</h1>
+        </section>
+
+        <section><div class="image" style="background-image: url(images/demo1/devexp/story1.gif)"></div></section>
+      </section>
+
+      <section>
+        <section>
+          <h1>deploy</h1>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h1>only for frontend?</h1>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h1>so it's all champagne from here, right?</h1>
+          <h2 class="fragment">...not necessarily</h2>
+        </section>
+      </section>
+
+      <section>
+        <h1>a middle ground</h1>
       </section>
 
       <section class="center">
         <h1>${whoami:-Jacob Bass}</h1>
 
+        <p>github: bassjacob</p>
+        <p>twitter: @bassjacob</p>
         <p>web: www.bassjacob.com</p>
         <p>email: me@bassjacob.com</p>
-        <p>twitter: @bassjacob</p>
-        <p>github: bassjacob</p>
       </section>
     </div>
   </div>

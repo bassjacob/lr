@@ -17,12 +17,9 @@ function grow(e) {
   var heightExceeded = (newHeight - oldHeight) > 0;
   var widthExceeded = (newWidth- oldWidth) > 0;
 
-  console.log(e.style.fontSize, heightExceeded, widthExceeded);
-
   if (heightExceeded || widthExceeded) {
     return shrink(e)
   } else {
-    console.log('growing')
     return grow(e)
   }
 }
@@ -37,10 +34,10 @@ function shrink(e) {
   var newWidth = e.scrollWidth;
   var newHeight = e.scrollHeight;
 
-  var heightExceeded = (newHeight - oldHeight) === 0;
-  var widthExceeded = (newWidth- oldWidth) === 0;
+  var heightExceeded = (newHeight - oldHeight) < 0;
+  var widthExceeded = (newWidth- oldWidth) < 0;
 
-  console.log('shrinking', heightExceeded, widthExceeded);
+  console.log(heightExceeded, widthExceeded)
 
   if (!heightExceeded || !widthExceeded) {
     return shrink(e)
@@ -131,7 +128,7 @@ function showMonoFooter (event) {
 
 Reveal.addEventListener('slidechanged', function (event) {
   showMonoFooter(event);
-  growCodeBlock();
+  //growCodeBlock();
 });
 
 Reveal.addEventListener('ready', function (event) {
